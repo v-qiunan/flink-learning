@@ -1,4 +1,4 @@
-package com.qiunan.datastream.api;
+package com.qiunan;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
@@ -20,7 +20,7 @@ public class WindowWordCount {
         env.setParallelism(1);
 
         DataStream<Tuple2<String, Integer>> dataStream = env
-                .socketTextStream("10.177.30.144", 9999)
+                .socketTextStream("localhost", 9999)
                 .flatMap(new Splitter())
                 .keyBy(value -> value.f0)
                 .window(TumblingProcessingTimeWindows.of(Time.seconds(5)))

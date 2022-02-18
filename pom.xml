@@ -6,12 +6,16 @@
 
     <groupId>com.qiunan</groupId>
     <artifactId>flink-learning</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>flink-datastream-api</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <flink.version>1.14.2</flink.version>
+        <flink.version>1.14.3</flink.version>
     </properties>
 
 
@@ -118,7 +122,7 @@
                             </filters>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.qiunan.datastream.WindowWordCount</mainClass>
+                                    <mainClass>com.qiunan.WindowWordCount</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
